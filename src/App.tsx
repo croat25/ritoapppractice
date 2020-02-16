@@ -22,7 +22,7 @@ const App = () => {
   return (
     <Router>
     <div className="App">
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to="/home">Home</Link>
@@ -37,7 +37,7 @@ const App = () => {
             <Link to="/topics">Topics</Link>
           </li>
           </ul>
-        </nav>
+        </nav> */}
         <Switch>
           <Route path="/about">
             <About />
