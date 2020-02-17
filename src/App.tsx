@@ -49,6 +49,7 @@ const App = () => {
             <Topics />
           </Route>
           <Route path="/home">
+
             <Home />
           </Route>
         </Switch>
@@ -80,7 +81,7 @@ const App = () => {
         </a> */}
 
       </header>
-      <InputPractice />
+      {/* <InputPractice /> */}
     </div>
     </Router>
   );
@@ -97,6 +98,8 @@ function About() {
 function Users() {
   return <h2>Users</h2>;
 }
+
+
 
 function Topics() {
   let match = useRouteMatch();
