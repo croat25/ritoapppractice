@@ -4,12 +4,11 @@ import { useParams } from 'react-router-dom';
 
 async function fetchData(name: string) {
     const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
-    const response = await fetch(proxyUrl + `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/call%20me%20deuce?api_key=RGAPI-00112694-4570-4e9c-be3f-909afda1d212`, {
+    const response = await fetch(proxyUrl + `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURI(name)}?api_key=RGAPI-00112694-4570-4e9c-be3f-909afda1d212`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             cache: 'no-cache'
-        })
-    console.log(await response.json());
+        });
     return await response.json();
 }
 
@@ -20,6 +19,7 @@ const InputPractice = () => {
 
     useEffect(() => {
         fetchData(name)
+        .then(data => setData(data))
         .catch(err => setError(err));
     },[name]);
 
