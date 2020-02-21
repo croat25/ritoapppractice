@@ -7,6 +7,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import SearchBarComponent from './SearchBarComponent';
  
 const App = () => {
   return (
@@ -27,8 +28,8 @@ const App = () => {
           </Route>
         </Switch>
       <header className="App-header">
-        
-      <InputPractice />
+       <SearchBarComponent /> 
+      {/* <InputPractice /> */}
       </header>
     </div>
     </Router>
