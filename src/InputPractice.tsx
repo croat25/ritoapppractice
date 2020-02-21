@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import './App.css';
 import { useParams } from 'react-router-dom';
+import InputPractice1 from './NestedInputPractice';
 
 async function fetchData(name: string) {
     const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
@@ -28,7 +29,13 @@ const InputPractice = () => {
     } else if (data == null) {
         return <pre>Loading...</pre>;
     } else {
-        return  <pre>{JSON.stringify(data,null,2)}</pre>;
+        return (
+            <div>
+                <pre>{JSON.stringify(data,null,2)}</pre> 
+                <InputPractice1 name={data.id}/>
+
+            </div>
+            );
     }
 }
 export default InputPractice;
