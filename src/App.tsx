@@ -16,19 +16,17 @@ const App = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
           </ul>
         </nav>
         <Switch>
           <Route path="/search/:name" component={ InputPractice } />
-          <Route path="/home">
-          
-            <Home />
+          <Route path="/">
+           <Home />
           </Route>
         </Switch>
       <header className="App-header">
-       <SearchBarComponent /> 
       {/* <InputPractice /> */}
       </header>
     </div>
@@ -37,7 +35,7 @@ const App = () => {
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <SearchBarComponent /> ;
 }
 
 export default App;
