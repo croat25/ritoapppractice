@@ -1,11 +1,12 @@
 import React, {useState, useEffect } from 'react';
+import  {ritoAPI}  from './appsettings.json'; 
 import './App.css';
 import { useParams } from 'react-router-dom';
 import InputPractice1 from './NestedInputPractice';
 
 async function fetchData(name: string) {
     const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
-    const response = await fetch(proxyUrl + `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURI(name)}?api_key=RGAPI-00112694-4570-4e9c-be3f-909afda1d212`, {
+    const response = await fetch(proxyUrl + `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURI(name)}?api_key=${ritoAPI}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             cache: 'no-cache'

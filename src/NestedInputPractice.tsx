@@ -1,10 +1,11 @@
 import React, {useState, useEffect } from 'react';
 import './App.css';
 import { useParams } from 'react-router-dom';
+import  { ritoAPI }  from './appsettings.json';
 
 async function fetchData1(name: string) {
     const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
-    const response = await fetch(proxyUrl + `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${encodeURI(name)}?api_key=RGAPI-00112694-4570-4e9c-be3f-909afda1d212`, {
+    const response = await fetch(proxyUrl + `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${encodeURI(name)}?api_key=${ritoAPI}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             cache: 'no-cache'
@@ -29,7 +30,11 @@ const InputPractice1 = (props: { name: string; }) => {
     } else if (data1 == null) {
         return <pre>Loading...</pre>;
     } else {
-        return  <pre>{JSON.stringify(data1 ,null,2)}</pre>;
+        return  (
+            <div>
+                <pre>{JSON.stringify(data1 ,null,2)}</pre>
+            </div>
+                );
     }
 }
 export default InputPractice1;
