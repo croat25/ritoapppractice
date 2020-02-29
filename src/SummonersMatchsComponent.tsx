@@ -35,7 +35,7 @@ const SummonersMatchesComponent: React.FC<SummonersMatchesProps> = props => {
         return  (
             <div>
                 <MatchView matches={data.matches} />
-                <pre>{JSON.stringify(data ,null,2)}</pre>
+                <pre>{JSON.stringify(data.matches.slice(0,20) ,null,2)}</pre>
 
             </div>
                 );
