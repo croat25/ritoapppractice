@@ -8,6 +8,7 @@ const SearchBarComponent = (props: any) => {
   if (name) {
     return <Redirect to={`/search/${name}`} push />
   }
+
  
   const handleSubmit = (evt: { preventDefault: () => void; }) => {
       evt.preventDefault();

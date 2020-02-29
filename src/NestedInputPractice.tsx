@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import './App.css';
 import { useParams } from 'react-router-dom';
 import  { ritoAPI }  from './appsettings.json';
+import ImageComponent from './ImageComponent';
 
 async function fetchData1(name: string) {
     const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
@@ -10,11 +11,13 @@ async function fetchData1(name: string) {
             headers: { 'Content-Type': 'application/json' },
             cache: 'no-cache'
         });
-        //HVvQ59VoGpczxJ54MEVctWutjIem3yGE3pD38dmwKYOcco4
     return await response.json();
 }
 
-const InputPractice1 = (props: { name: string; }) => {
+export interface PropingShit{
+    name : string
+}
+const InputPractice1: React.FC<PropingShit> = props => {
     const [error, setError] = useState<any>(undefined);
     const [data1, setData1] = useState<any>(null);
     // const name = useParams<{ name: string }>().name;
@@ -33,6 +36,7 @@ const InputPractice1 = (props: { name: string; }) => {
         return  (
             <div>
                 <pre>{JSON.stringify(data1 ,null,2)}</pre>
+                <ImageComponent tier={data1[0].tier} />
             </div>
                 );
     }

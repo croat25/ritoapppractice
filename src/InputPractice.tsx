@@ -3,6 +3,7 @@ import  {ritoAPI}  from './appsettings.json';
 import './App.css';
 import { useParams } from 'react-router-dom';
 import InputPractice1 from './NestedInputPractice';
+import SummonersMatchesComponent from './SummonersMatchsComponent';
 
 async function fetchData(name: string) {
     const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
@@ -34,7 +35,7 @@ const InputPractice = () => {
             <div>
                 <pre>{JSON.stringify(data,null,2)}</pre> 
                 <InputPractice1 name={data.id}/>
-
+                <SummonersMatchesComponent encryptedSummonerId={data.accountId} />
             </div>
             );
     }

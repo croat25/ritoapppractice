@@ -11,31 +11,18 @@ import SearchBarComponent from './SearchBarComponent';
  
 const App = () => {
   return (
+    <div>
     <Router>
-    <div className="App">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
+        <Link to="/">Home</Link>
         <Switch>
           <Route path="/search/:name" component={ InputPractice } />
-          <Route path="/">
-           <Home />
-          </Route>
+          <Route path="/" component={ SearchBarComponent } />
         </Switch>
-      <header className="App-header">
-      {/* <InputPractice /> */}
-      </header>
-    </div>
     </Router>
+
+    </div>
   );
 }
 
-function Home() {
-  return <SearchBarComponent /> ;
-}
 
 export default App;
