@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import  {ritoAPI}  from './appsettings.json';
 import MatchView from './MatchView';
-export interface SummonersMatchesProps{
-    encryptedSummonerId: string
-}
+import { SummonersMatchesProps } from './data/MetaData.js';
 
 async function fetchData(encryptedSummonerId: string) {
     const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
@@ -18,7 +16,6 @@ async function fetchData(encryptedSummonerId: string) {
 const SummonersMatchesComponent: React.FC<SummonersMatchesProps> = props => {
     const [error, setError] = useState<any>(undefined);
     const [data, setData] = useState<any>(null);
-    // const name = useParams<{ name: string }>().name;
     
     useEffect(() => {
         fetchData(props.encryptedSummonerId)

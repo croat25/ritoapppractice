@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './MatchStats.css';
 import ToggleTray from './ToggleTray';
 import {ritoAPI} from './appsettings.json';
+import { MatchStatsProps } from './data/MetaData';
 
 async function fetchData(gameId: number) {
     const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
@@ -11,21 +12,6 @@ async function fetchData(gameId: number) {
             cache: 'no-cache'
         });
     return await response.json();
-}
-
-export interface MatchinfoProps{
-    platformId: string,
-    gameId: number,
-    champion: number,
-    queue: number,
-    season: number,
-    timestamp: number,
-    role: string,
-    lane: string
-}
-
-export interface MatchStatsProps{
-  match : MatchinfoProps;
 }
 
 const MatchStats : React.FC<MatchStatsProps> = props =>{

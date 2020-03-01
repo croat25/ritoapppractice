@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-
-export interface ToggleTrayProps {
-    title?: string;
-}
+import { ToggleTrayProps } from './data/MetaData';
 
 const ToggleTray: React.FC<ToggleTrayProps> = props => {
     const [expanded, setExpanded] = useState(false);

@@ -1,25 +1,12 @@
 import React from 'react';
 import MatchStats from './MatchStats';
+import { MatchViewProps } from './data/MetaData';
 
 
-export interface MatchinfoProps{
-    platformId: string,
-    gameId: number,
-    champion: number,
-    queue: number,
-    season: number,
-    timestamp: number,
-    role: string,
-    lane: string
-}
-
-export interface MatchViewProps{
-  matches : MatchinfoProps[];
-}
 
 const MatchView: React.FC<MatchViewProps> = props =>
     <>
-    {props.matches.map(m => <MatchStats match={m} />)}
+    {props.matches.slice(0, 20).map(m => <MatchStats match={m} />)}
     </>;
 
 

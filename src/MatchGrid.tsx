@@ -1,20 +1,7 @@
 import React from 'react';
 import './MatchGrid.css';
+import { MatchGridProps } from './data/MetaData';
 
-export interface matchinfoProps{
-      platformId: string,
-      gameId: number,
-      champion: number,
-      queue: number,
-      season: number,
-      timestamp: number,
-      role: string,
-      lane: string
-}
-
-export interface MatchGridProps{
-    matches : matchinfoProps[];
-}
 
 const MatchGrid: React.FC<MatchGridProps> = props => {
 
