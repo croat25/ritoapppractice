@@ -1,9 +1,5 @@
 import React from 'react';
-
-
-export interface PhotoProps{
-    tier : string
-}
+import { PhotoProps } from './data/MetaData';
 
 
 const ImageComponent: React.FC<PhotoProps> = props => {
@@ -13,7 +9,6 @@ const ImageComponent: React.FC<PhotoProps> = props => {
             <img src = {`/Ranked-Emblems/Emblem_${props.tier}.png`} />
         </div>
     )
-
 }
 
 export default ImageComponent;

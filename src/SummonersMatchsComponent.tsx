@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import  {ritoAPI}  from './appsettings.json';
 import MatchView from './MatchView';
 import { SummonersMatchesProps } from './data/MetaData.js';
+import { fetchWholeMatchHistoryOfSummoner } from './api/MatchApi';
 
-async function fetchData(encryptedSummonerId: string) {
-    const proxyUrl = "https://polar-cove-15690.herokuapp.com/";
-    const response = await fetch(proxyUrl + `https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${encodeURI(encryptedSummonerId)}?api_key=${ritoAPI}`, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-            cache: 'no-cache'
-        });
-    return await response.json();
-}
 
 const SummonersMatchesComponent: React.FC<SummonersMatchesProps> = props => {
     const [error, setError] = useState<any>(undefined);
     const [data, setData] = useState<any>(null);
     
     useEffect(() => {
-        fetchData(props.encryptedSummonerId)
+        fetchWholeMatchHistoryOfSummoner(props.encryptedSummonerId)
         .then(data => setData(data))
         .catch(err => setError(err));
     },[props.encryptedSummonerId]);
