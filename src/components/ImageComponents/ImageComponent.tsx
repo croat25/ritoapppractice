@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhotoProps } from './data/MetaData';
+import { PhotoProps } from '../../data/MetaData';
 
 
 const ImageComponent: React.FC<PhotoProps> = props => {

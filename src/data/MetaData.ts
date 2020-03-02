@@ -24,7 +24,6 @@ export interface MatchStatsProps{
 export interface MatchViewProps{
     matches : MatchinfoProps[];
 }
-
   
 export interface PropingShit{
     name : string

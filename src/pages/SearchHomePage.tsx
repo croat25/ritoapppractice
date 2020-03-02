@@ -1,15 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
 import { Redirect } from 'react-router-dom';
  
-const SearchBarComponent = (props: any) => {
+const SearchHomePage = (props: any) => {
   const [name, setName] = useState<string | undefined>(undefined);
 
   if (name) {
     return <Redirect to={`/search/${name}`} push />
   }
 
- 
   const handleSubmit = (evt: { preventDefault: () => void; }) => {
       evt.preventDefault();
       setName(inputComponent?.value);
@@ -28,4 +26,4 @@ const SearchBarComponent = (props: any) => {
   )
 }
  
- export default SearchBarComponent
+ export default SearchHomePage

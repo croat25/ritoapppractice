@@ -1,13 +1,13 @@
 import React  from 'react';
 import './App.css';
-import InputPractice from './InputPractice';
+import SummonerSearchResultPage from '../../pages/SummonerSearchResultPage';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import SearchBarComponent from './SearchBarComponent';
+import SearchHomePage from '../../pages/SearchHomePage';
  
 const App = () => {
   return (
@@ -15,8 +15,8 @@ const App = () => {
     <Router>
         <Link to="/">Home</Link>
         <Switch>
-          <Route path="/search/:name" component={ InputPractice } />
-          <Route path="/" component={ SearchBarComponent } />
+          <Route path="/search/:name" component={ SummonerSearchResultPage } />
+          <Route path="/" component={ SearchHomePage } />
         </Switch>
     </Router>
 

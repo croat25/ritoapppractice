@@ -1,11 +1,10 @@
 import React, {useState, useEffect } from 'react';
-import './App.css';
 import { useParams } from 'react-router-dom';
-import InputPractice1 from './NestedInputPractice';
-import SummonersMatchesComponent from './SummonersMatchsComponent';
-import { fetchSummonerByName } from './api/SummonerApi';
+import SummonerInfoStats from '../components/SummonerInfoComponents/SummonerInfoStats';
+import SummonersMatchesComponent from '../components/MatchComponents/SummonersMatchsComponent';
+import { fetchSummonerByName } from '../api/SummonerApi';
 
-const InputPractice = () => {
+const SummonerSearchResultPage = () => {
     const [error, setError] = useState<any>(undefined);
     const [data, setData] = useState<any>(null);
     const name = useParams<{ name: string }>().name;
@@ -24,10 +23,10 @@ const InputPractice = () => {
         return (
             <div>
                 <pre>{JSON.stringify(data,null,2)}</pre> 
-                <InputPractice1 name={data.id}/>
+                <SummonerInfoStats name={data.id}/>
                 <SummonersMatchesComponent encryptedSummonerId={data.accountId} />
             </div>
             );
     }
 }
-export default InputPractice;
+export default SummonerSearchResultPage;

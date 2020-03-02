@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MatchView from './MatchView';
-import { SummonersMatchesProps } from './data/MetaData.js';
-import { fetchWholeMatchHistoryOfSummoner } from './api/MatchApi';
+import { SummonersMatchesProps } from '../../data/MetaData';
+import { fetchWholeMatchHistoryOfSummoner } from '../../api/MatchApi';
 
 
 const SummonersMatchesComponent: React.FC<SummonersMatchesProps> = props => {

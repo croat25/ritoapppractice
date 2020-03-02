@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './MatchStats.css';
-import ToggleTray from './ToggleTray';
-import { MatchStatsProps } from './data/MetaData';
-import { GetMatchByGameId } from './api/MatchApi';
+import ToggleTray from '../tools/ToggleTray';
+import { MatchStatsProps } from '../../data/MetaData';
+import { GetMatchByGameId } from '../../api/MatchApi';
 
 
 const MatchStats : React.FC<MatchStatsProps> = props =>{

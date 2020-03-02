@@ -1,10 +1,9 @@
 import React from 'react';
 import './MatchGrid.css';
-import { MatchGridProps } from './data/MetaData';
+import { MatchGridProps } from '../../data/MetaData';
 
 
 const MatchGrid: React.FC<MatchGridProps> = props => {
-
 
     const matches = props.matches;
     return <table className='MatchGrid'>
@@ -27,7 +26,5 @@ const MatchGrid: React.FC<MatchGridProps> = props => {
 </table>;
 
 }
-
-
 
 export default MatchGrid;

@@ -1,6 +1,6 @@
 import React from 'react';
 import MatchStats from './MatchStats';
-import { MatchViewProps } from './data/MetaData';
+import { MatchViewProps } from '../../data/MetaData';
 
 const MatchView: React.FC<MatchViewProps> = props =>
     <>

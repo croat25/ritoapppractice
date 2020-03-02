@@ -1,10 +1,9 @@
 import React, {useState, useEffect } from 'react';
-import './App.css';
-import ImageComponent from './ImageComponent';
-import { fetchSummonerBySummoner } from './api/SummonerApi';
-import { PropingShit } from './data/MetaData';
+import ImageComponent from '../ImageComponents/ImageComponent';
+import { fetchSummonerBySummoner } from '../../api/SummonerApi';
+import { PropingShit } from '../../data/MetaData';
 
-const InputPractice1: React.FC<PropingShit> = props => {
+const SummonerInfoStats: React.FC<PropingShit> = props => {
     const [error, setError] = useState<any>(undefined);
     const [data1, setData1] = useState<any>(null);
     
@@ -27,4 +26,4 @@ const InputPractice1: React.FC<PropingShit> = props => {
                 );
     }
 }
-export default InputPractice1;
+export default SummonerInfoStats;
