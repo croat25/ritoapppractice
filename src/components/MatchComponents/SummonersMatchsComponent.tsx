@@ -3,7 +3,6 @@ import MatchView from './MatchView';
 import { SummonersMatchesProps } from '../../data/MetaData';
 import { fetchWholeMatchHistoryOfSummoner } from '../../api/MatchApi';
 
-
 const SummonersMatchesComponent: React.FC<SummonersMatchesProps> = props => {
     const [error, setError] = useState<any>(undefined);
     const [data, setData] = useState<any>(null);

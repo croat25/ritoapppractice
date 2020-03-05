@@ -24,6 +24,8 @@ const SummonerSearchResultPage = () => {
             <div>
                 <pre>{JSON.stringify(data,null,2)}</pre> 
                 <SummonerInfoStats name={data.id}/>
+                
+                {/* //add a table then move the below function into that table */}
                 <SummonersMatchesComponent encryptedSummonerId={data.accountId} />
             </div>
             );

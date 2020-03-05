@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './MatchStats.css';
 import ToggleTray from '../tools/ToggleTray';
-import { MatchStatsProps } from '../../data/MetaData';
+import { MatchStatsProps, MatchDto } from '../../data/MetaData';
 import { GetMatchByGameId } from '../../api/MatchApi';
+import MatchParticipants from './MatchParticipants';
 
 
 const MatchStats : React.FC<MatchStatsProps> = props =>{
-    const [data,setData] = useState<any | undefined>(undefined);
-    const [error, setError] = useState<any>(undefined);
+    const [data,setData] = useState<MatchDto>();
+    const [error, setError] = useState<MatchDto>();
 
     useEffect(() => {
         GetMatchByGameId(props.match.gameId)
@@ -21,6 +22,7 @@ const MatchStats : React.FC<MatchStatsProps> = props =>{
                 <div style={{ gridArea: 'metap' }}>
                     Season : { props.match.season }
                 </div>
+                <MatchParticipants participantIdentityDto={data?.participantIdentities} />
                 <div style={{ gridArea: 'winp' }}>
                     Champion: { props.match.champion }
                 </div>
