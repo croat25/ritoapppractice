@@ -210,7 +210,6 @@ export interface TeamStatsDto{
 }
 
 export interface PlayerDto{
-    [x: string]: any;
     currentPlatformId: string,
     summonerName: string,
     matchHistoryUri: string,

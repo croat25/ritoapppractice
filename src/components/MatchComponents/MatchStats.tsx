@@ -22,9 +22,9 @@ const MatchStats : React.FC<MatchStatsProps> = props =>{
                 <div style={{ gridArea: 'metap' }}>
                     Season : { props.match.season }
                 </div>
-                <MatchParticipants participantIdentityDto={data?.participantIdentities} />
+                {/* <MatchParticipants participantIdentityDto={data?.participantIdentities} /> */}
                 <div style={{ gridArea: 'winp' }}>
-                    Champion: { props.match.champion }
+                <MatchParticipants participantIdentityDto={data?.participantIdentities} />
                 </div>
             </div>
         </ToggleTray>
