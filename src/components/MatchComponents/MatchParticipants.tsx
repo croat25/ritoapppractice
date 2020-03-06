@@ -1,16 +1,37 @@
 import React from 'react';
-import { ParticipantIdentityDto} from '../../data/MetaData';
+import { ParticipantIdentityDto, ParticipantDto} from '../../data/MetaData';
 
 export interface MatchParticipantsProps{
-    participantIdentityDto?: ParticipantIdentityDto[]
+    participantIdentityDto?: ParticipantIdentityDto[],
+    participantDto?: ParticipantDto[]
 }
 
+export interface tempList{
+    participantId: number,
+    teamId: number
+}
 
 const MatchParticipants: React.FC<MatchParticipantsProps> = props => {
-
+    var particapants = props.participantIdentityDto?.filter(participantName => participantName.participantId);
+    var teamBlueParticipants = props.participantDto?.filter(blueTeam => blueTeam.teamId === 100);
+    var teamRedParticipants = props.participantDto?.filter(redTeam => redTeam.teamId === 200);
+    console.log(teamBlueParticipants);
+    console.log(teamRedParticipants);
+    console.log(particapants);
+    var team1Names = teamBlueParticipants?.map(({participantId}) => props.participantIdentityDto?.find(p => p.participantId === participantId));
+    console.log(team1Names);
+    var team2Names = teamRedParticipants?.map(({participantId}) => props.participantIdentityDto?.find(p => p.participantId === participantId));
+    console.log(team2Names);
     return(
         <div>
-            {props.participantIdentityDto?.map( player => <li>player.player.summonerName: {player.player.summonerName} </li>)}
+            {props.participantIdentityDto?.map(player => {
+            props.participantDto?.map(teamId =>{
+
+                if(player.participantId === teamId.participantId) {
+                    return (<li>summerId: {player.player.summonerName} TeamId: {teamId.teamId} </li>);
+                }
+            })
+            })}
         </div>
     );
 }

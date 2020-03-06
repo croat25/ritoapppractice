@@ -24,7 +24,7 @@ const MatchStats : React.FC<MatchStatsProps> = props =>{
                 </div>
                 {/* <MatchParticipants participantIdentityDto={data?.participantIdentities} /> */}
                 <div style={{ gridArea: 'winp' }}>
-                <MatchParticipants participantIdentityDto={data?.participantIdentities} />
+                <MatchParticipants participantIdentityDto={data?.participantIdentities} participantDto={data?.participants} />
                 </div>
             </div>
         </ToggleTray>
