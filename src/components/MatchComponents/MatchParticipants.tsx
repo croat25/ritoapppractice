@@ -24,14 +24,24 @@ const MatchParticipants: React.FC<MatchParticipantsProps> = props => {
     console.log(team2Names);
     return(
         <div>
-            {props.participantIdentityDto?.map(player => {
+            {/* {props.participantIdentityDto?.map(player => {
             props.participantDto?.map(teamId =>{
 
                 if(player.participantId === teamId.participantId) {
                     return (<li>summerId: {player.player.summonerName} TeamId: {teamId.teamId} </li>);
                 }
             })
-            })}
+            })} */}
+            <table>
+                <tr>
+                    <th>Red Team</th>
+                    <th>Blue Team</th>
+                </tr>
+                <tr>
+                    <td>{team1Names?.map((playerName,i) => <li key={i}>{playerName?.player.summonerName}</li>)}</td>
+                    <td>{team2Names?.map((playerName,i) => <li key={i}>{playerName?.player.summonerName}</li>)}</td>
+                </tr>
+            </table>
         </div>
     );
 }
