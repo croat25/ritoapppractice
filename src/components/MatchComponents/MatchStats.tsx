@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './MatchStats.css';
 import ToggleTray from '../tools/ToggleTray';
 import { MatchStatsProps, MatchDto } from '../../data/MetaData';
@@ -9,12 +9,13 @@ import MatchParticipants from './MatchParticipants';
 const MatchStats : React.FC<MatchStatsProps> = props =>{
     const [data,setData] = useState<MatchDto>();
     const [error, setError] = useState<MatchDto>();
-
+    let yolo1 = {} as MatchDto;
     useEffect(() => {
         GetMatchByGameId(props.match.gameId)
         .then(data => setData(data))
         .catch(error => setError(error));
     },[props.match.gameId]);
+
 
     return <div className='MatchStats'>
         <ToggleTray title={ props.match.timestamp.toString() }>
@@ -24,8 +25,10 @@ const MatchStats : React.FC<MatchStatsProps> = props =>{
                 </div>
                 {/* <MatchParticipants participantIdentityDto={data?.participantIdentities} /> */}
                 <div style={{ gridArea: 'winp' }}>
-                <MatchParticipants participantIdentityDto={data?.participantIdentities} participantDto={data?.participants} />
                 </div>
+                { 
+                    <MatchParticipants participantIdentityDto={data?.participantIdentities} participantDto={data?.participants} />
+                }
             </div>
         </ToggleTray>
     </div>
