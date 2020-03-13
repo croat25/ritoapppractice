@@ -17,8 +17,6 @@ export async function GetMatchByGameId(gameId: number) {
             headers: { 'Content-Type': 'application/json' },
             cache: 'no-cache'
         });
-        if(response.status !== 200){
-            return null;
-        }
+
     return await response.json();
 }
