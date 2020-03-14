@@ -10,7 +10,6 @@ import PageLoader from '../tools/PageLoader';
 const MatchStats : React.FC<MatchStatsProps> = props =>{
     const [data,setData] = useState<MatchDto>();
     const [error, setError] = useState<MatchDto>();
-    let yolo1 = {} as MatchDto;
     useEffect(() => {
         GetMatchByGameId(props.match.gameId)
         .then(data => setData(data))

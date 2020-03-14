@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ParticipantIdentityDto, ParticipantDto} from '../../data/MetaData';
+import PageLoader from '../tools/PageLoader';
+import ParticipantStats from './ParticipantStats';
 
 export interface MatchParticipantsProps{
     participantIdentityDto: ParticipantIdentityDto[],
@@ -14,6 +16,8 @@ export interface tempList{
 const MatchParticipants: React.FC<MatchParticipantsProps> = props => {
     
     const [data,setData] = useState<MatchParticipantsProps | any>(undefined);
+    const [error, setError] = useState<MatchParticipantsProps>();
+
     var particapants = props.participantIdentityDto.filter(participantName => participantName.participantId);
     var teamBlueParticipants = props.participantDto.filter(blueTeam => blueTeam.teamId === 100);
     var teamRedParticipants = props.participantDto.filter(redTeam => redTeam.teamId === 200);
@@ -21,34 +25,50 @@ const MatchParticipants: React.FC<MatchParticipantsProps> = props => {
     console.log(teamRedParticipants);
     console.log(particapants);
     var team1Names = teamBlueParticipants.map(({participantId}) => props.participantIdentityDto.find(p => p.participantId === participantId));
-    var team1Names2 = team1Names as ParticipantIdentityDto[];
-    console.log(team1Names);
     var team2Names = teamRedParticipants.map(({participantId}) => props.participantIdentityDto.find(p => p.participantId === participantId));
-    var team2Names2 = team2Names as ParticipantIdentityDto[];
-    console.log(team2Names);
-    
-    return(
-        <div>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Red Team</th>
-                        <th>Blue Team</th>
-                    </tr>
-                    {
+    if(error){
+        return <pre>{error.toString()}</pre>
+    }
+    else{
+        return(
+            <div>
+                <table>
+                    <tbody>
                         <tr>
-                            <td>
-                                {team1Names.map(p => <tr>{p?.player.summonerName}</tr>)}
-                            </td>
-                            <td>
-                                {team2Names.map(p => <tr>{p?.player.summonerName}</tr>)}
-                            </td>
+                            <th>Red Team</th>
+                            <th>Blue Team</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    );
+                        {
+                            <tr>
+                                <td>
+                                    {
+                                        team1Names.map((p, index) => 
+                                            <tr>
+                                                {
+                                                    <ParticipantStats summonerName={p?.player.summonerName} participantStats={teamBlueParticipants[index]} />
+                                                }
+                                            </tr>
+                                        )
+                                    }
+                                </td>
+                                <td>
+                                    {
+                                        team2Names.map((p, index) => 
+                                            <tr>
+                                                {
+                                                    <ParticipantStats summonerName={p?.player.summonerName} participantStats={teamBlueParticipants[index]} />
+                                                }
+                                            </tr>
+                                        )
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
 }
 
 export default MatchParticipants;
