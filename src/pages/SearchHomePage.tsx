@@ -16,7 +16,7 @@ const SearchHomePage = (props: any) => {
   let inputComponent: HTMLInputElement | null;
  
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="yoloswag420">
       <input
         type="text"
         ref={(comp => inputComponent = comp)}
